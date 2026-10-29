@@ -27,6 +27,7 @@ import java.util.Set;
  */
 public final class SocialNetworkUserImpl<U extends User> extends UserImpl implements SocialNetworkUser<U> {
 
+    final Map <String,List<U>> map= new HashMap<>();
     /*
      *
      * [FIELDS]
@@ -64,12 +65,22 @@ public final class SocialNetworkUserImpl<U extends User> extends UserImpl implem
      *            application
      */
     public SocialNetworkUserImpl(final String name, final String surname, final String user, final int userAge) {
-        super(null, null, null, 0);
+        super(name, surname, user, userAge);
     }
 
     /*
      * 2) Define a further constructor where the age defaults to -1
      */
+
+    public SocialNetworkUserImpl(final String name, final String surname, final String user){
+        super(name,surname,user);
+    }
+
+
+
+
+
+
 
     /*
      * [METHODS]
@@ -78,6 +89,13 @@ public final class SocialNetworkUserImpl<U extends User> extends UserImpl implem
      */
     @Override
     public boolean addFollowedUser(final String circle, final U user) {
+        if(map.containsKey(circle)!=true){
+            map.put(circle,new ArrayList<>());
+
+        }else{
+            
+        }
+        
         return false;
     }
 
